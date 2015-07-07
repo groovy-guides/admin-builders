@@ -1,0 +1,3 @@
+FROM codenvy/shellinabox
+
+

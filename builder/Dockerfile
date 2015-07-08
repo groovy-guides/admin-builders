@@ -9,4 +9,4 @@ RUN mkdir -p ~/.gradle
 
 RUN ./gradlew build
 
-CMD rm -rf /usr/src/app
+RUN rm -rf /usr/src/app

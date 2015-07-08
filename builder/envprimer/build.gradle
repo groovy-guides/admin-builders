@@ -1,0 +1,23 @@
+apply plugin: 'groovy'
+apply plugin: 'application'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile group: 'org.codehaus.groovy', name:'groovy-all', version: project.groovyVersion
+    testCompile group: 'org.spockframework', name: 'spock-core', version: project.spockVersion
+    compile project.dbDependency
+}
+
+compileGroovy.sourceCompatibility = project.groovyVersion
+compileGroovy.targetCompatibility = project.groovyVersion
+
+mainClassName = 'main'
+
+task wrapper(type: Wrapper) {
+    gradleVersion = project.gradleVersion
+}

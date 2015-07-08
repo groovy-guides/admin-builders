@@ -1,0 +1,1 @@
+class HelloSpockSpec extends spock.lang.Specification {}

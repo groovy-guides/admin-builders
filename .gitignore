@@ -3,3 +3,7 @@
 
 .idea
 *.iml
+
+
+builder/envprimer/.gradle
+builder/envprimer/build

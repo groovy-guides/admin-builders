@@ -13,9 +13,9 @@ ENV GROOVY_HOME /opt/groovy-${GROOVY_VERSION}
 ENV PATH $PATH:$GROOVY_HOME/bin
 
 # Install groovy
-#ADD http://dl.bintray.com/groovy/maven/apache-groovy-binary-${GROOVY_VERSION}.zip /tmp/
+ADD http://dl.bintray.com/groovy/maven/apache-groovy-binary-${GROOVY_VERSION}.zip /tmp/
 
-ADD dist-tmp/apache-groovy-binary-${GROOVY_VERSION}.zip /tmp/
+#ADD dist-tmp/apache-groovy-binary-${GROOVY_VERSION}.zip /tmp/
 
 RUN unzip -d /opt/ /tmp/apache-groovy-binary-${GROOVY_VERSION}.zip \
   && rm /tmp/apache-groovy-binary-${GROOVY_VERSION}.zip

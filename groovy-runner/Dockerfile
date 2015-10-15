@@ -2,22 +2,45 @@ FROM java:openjdk-8-jdk
 
 MAINTAINER duncan@dickinson.name
 
-RUN apt-get update
+RUN apt-get update && \
+    apt-get -y install sudo procps wget unzip mc gcc make
+
+RUN apt-get clean
 
 ENV GROOVY_VERSION 2.4.5
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64
 ENV GROOVY_HOME /opt/groovy-${GROOVY_VERSION}
 ENV PATH $PATH:$GROOVY_HOME/bin
 
-RUN useradd -c "Local Groovy user" -p groovy -m groovy
+# Install groovy
+#ADD http://dl.bintray.com/groovy/maven/apache-groovy-binary-${GROOVY_VERSION}.zip /tmp/
 
-ADD http://dl.bintray.com/groovy/maven/apache-groovy-binary-${GROOVY_VERSION}.zip /tmp/
-
-#ADD apache-groovy-binary-${GROOVY_VERSION}.zip /tmp/
+ADD dist-tmp/apache-groovy-binary-${GROOVY_VERSION}.zip /tmp/
 
 RUN unzip -d /opt/ /tmp/apache-groovy-binary-${GROOVY_VERSION}.zip \
   && rm /tmp/apache-groovy-binary-${GROOVY_VERSION}.zip
 
-WORKDIR /home/groovy
+#Setup the local user
+RUN echo "%sudo ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 
-USER groovy
+RUN useradd -u 5001 -c "Local user" -p user -m user --shell /bin/bash -G users,sudo
+RUN echo "secret\nsecret" | passwd user
+RUN usermod -u 1000 user
+
+USER user
+
+EXPOSE 4200
+
+ENV CODENVY_WEB_SHELL_PORT 4200
+
+ADD entrypoint.sh /entrypoint.sh
+
+#Install shellinabox
+ADD shellinabox.zip /opt/shellinabox.zip
+
+RUN sudo chown user:user -R /opt && \
+    cd /opt && unzip shellinabox.zip && \
+    rm -rf /opt/shellinabox.zip && \
+    sudo chmod 755 /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]

@@ -43,4 +43,8 @@ RUN sudo chown user:user -R /opt && \
     rm -rf /opt/shellinabox.zip && \
     sudo chmod 755 /entrypoint.sh
 
+RUN echo "export JAVA_HOME=$JAVA_HOME" >> /home/user/.bashrc
+RUN echo "export GROOVY_HOME=$GROOVY_HOME" >> /home/user/.bashrc
+RUN echo "export PATH=$GROOVY_HOME/bin:$JAVA_HOME/bin:path" >> /home/user/.bashrc
+
 ENTRYPOINT ["/entrypoint.sh"]

@@ -1,0 +1,69 @@
+{
+  "ide": {
+    "onAppLoaded": {
+      "actions": []
+    },
+    "onProjectOpened": {
+      "actions": [
+        {
+          "properties": {
+            "file": "hello.groovy"
+          },
+          "id": "openFile"
+        },
+        {
+          "properties": {
+            "file": "README.md"
+          },
+          "id": "openFile"
+        },
+        {
+          "properties": {},
+          "id": "runApp"
+        }
+      ]
+    }
+  },
+  "creator": {
+    "created": 1444952053888,
+    "userId": "usercyx9llxdlfid42lz"
+  },
+  "v": "2.1",
+  "project": {
+    "modules": [],
+    "name": "BasicGroovyRunner",
+    "builders": {
+      "configs": {}
+    },
+    "mixinTypes": [],
+    "visibility": "public",
+    "runners": {
+      "configs": {
+        "project:/groovy-runner": {
+          "ram": 1000,
+          "variables": {
+            "configurationType": "blank"
+          },
+          "options": {}
+        }
+      },
+      "default": "project:/groovy-runner"
+    },
+    "type": "blank",
+    "attributes": {},
+    "description": "A basic environment for running Groovy scripts"
+  },
+  "workspace": {
+    "location": "acceptor",
+    "type": "temp"
+  },
+  "source": {
+    "project": {
+      "location": "https://github.com/groovy-tutorial/codenvy-factory.git",
+      "type": "git",
+      "parameters": {}
+    },
+    "runners": {}
+  },
+  "id": "ywk05vqoj59g5gyl"
+}

@@ -16,10 +16,6 @@
             "file": "README.md"
           },
           "id": "openFile"
-        },
-        {
-          "properties": {},
-          "id": "runApp"
         }
       ]
     }
@@ -65,7 +61,7 @@
     },
     "runners": {
       "/docker/groovy-runner": {
-        "location": "https://raw.githubusercontent.com/groovy-tutorial/admin-builders/master/Codenvy/factories/groovy-runner/Dockerfile",
+        "location": "https://raw.githubusercontent.com/groovy-tutorial/admin-builders/master/Codenvy/factories/groovy-runner/Dockerfile"
       }
     }
   },

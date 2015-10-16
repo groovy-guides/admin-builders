@@ -31,7 +31,7 @@
   "v": "2.1",
   "project": {
     "modules": [],
-    "name": "BasicGroovyRunner",
+    "name": "groovy-runner",
     "builders": {
       "configs": {}
     },
@@ -39,7 +39,7 @@
     "visibility": "public",
     "runners": {
       "configs": {
-        "project:/groovy-runner": {
+        "project:/docker/groovy-runner": {
           "ram": 1000,
           "variables": {
             "configurationType": "blank"
@@ -47,7 +47,7 @@
           "options": {}
         }
       },
-      "default": "project:/groovy-runner"
+      "default": "project:/docker/groovy-runner"
     },
     "type": "blank",
     "attributes": {},
@@ -63,7 +63,11 @@
       "type": "git",
       "parameters": {}
     },
-    "runners": {}
+    "runners": {
+      "/docker/groovy-runner": {
+        "location": "https://raw.githubusercontent.com/groovy-tutorial/codenvy-factory/master/.codenvy/runners/environments/groovy-runner/Dockerfile",
+      }
+    }
   },
   "id": "ywk05vqoj59g5gyl"
 }

@@ -1,0 +1,12 @@
+{
+  "steps" : [
+    {
+      "title" : "Open a terminal",
+      "content" : "To start the terminal, go the the `Run` menu and select `Run`. You should see a console section starting up in the lower pane of the IDE - this is setting up a container with Groovy ready to go.",      "element" : "gwt-debug-MainToolbar/runApp-true",
+      "placement" : "BOTTOM",
+      "xOffset" : "-20",
+      "actions" : [
+      ]
+    }
+  ]
+}

@@ -4,20 +4,17 @@
       "actions": []
     },
     "onProjectOpened": {
-      "actions": [
-        {
-          "properties": {
-            "file": "hello.groovy"
-          },
-          "id": "openFile"
+      "actions": [{
+        "properties": {
+          "file": "hello.groovy"
         },
-        {
-          "properties": {
-            "file": "README.md"
-          },
-          "id": "openFile"
-        }
-      ]
+        "id": "openFile"
+      }, {
+        "properties": {
+          "file": "README.md"
+        },
+        "id": "openFile"
+      }]
     }
   },
   "creator": {
@@ -30,6 +27,14 @@
     "name": "groovy-runner",
     "builders": {
       "configs": {}
+    },
+    "mixins": [
+      "GuidedTour"
+    ],
+    "attributes": {
+      "codenvyGuidedTour": [
+        "https://raw.githubusercontent.com/groovy-tutorial/admin-builders/master/Codenvy/factories/groovy-runner/GuidedTour.json"
+      ]
     },
     "mixinTypes": [],
     "visibility": "public",
